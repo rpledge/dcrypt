@@ -27,7 +27,7 @@ def configure(conf):
 def build(bld):
   obj = bld.new_task_gen("cxx", "shlib", "node_addon")
   obj.target = 'dcrypt'
-  obj.find_sources_in_dirs("src")
+  obj.source = bld.glob("src/*.cc")
   if bld.env["WITHOUT_ECDSA"]:
     print 'Building Dcrypt without ECDSA support'
   
